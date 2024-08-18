@@ -6,7 +6,6 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     history = {
-       path =  "~./histfile";
        size = 5000;
        save = 30000;
     };
