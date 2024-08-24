@@ -10,6 +10,7 @@ local colors = {
   magenta  = '#c678dd',
   blue     = '#51afef',
   red      = '#ec5f67',
+  black    = '#000000',
 }
 require('lualine').setup {
   options = {
@@ -59,7 +60,7 @@ require('lualine').setup {
             ['!'] = colors.red,
             t = colors.red,
           }
-          return { fg = mode_color[vim.fn.mode()] }
+          return { fg = mode_color[vim.fn.mode()], bg = colors.black }
         end,
         padding = { right = 1 },
       }
