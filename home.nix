@@ -71,11 +71,12 @@
   imports = [
     #./programs/emacs.nix
     ./programs/zsh.nix
-    ./programs/emacs.nix
+  	  ./programs/emacs.nix
     ./configs/fonts.nix
     ./programs/ls_colors/ls.nix
 ./programs/nvim/nvim.nix
   ];
+  programs.emacs.enable = false;
 
   home.sessionVariables = {
     # EDITOR = "emacs";
