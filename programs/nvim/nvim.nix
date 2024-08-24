@@ -6,5 +6,5 @@ viAlias = true;
 vimAlias = true;
 vimDiffAlias = true;
 
-}
+};
 }
