@@ -1,18 +1,16 @@
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.NvimTreeToggle)
 -- vim.keymap.set("n", "<leader>pe", ":Oil --float " .. vim.loop.cwd())
 vim.keymap.set("i", "jk", "<ESC>")
 vim.keymap.set("n", "<leader>w", "<C-w>")
 vim.keymap.set("n", "<leader>fs", ":w<CR>")
 vim.keymap.set("n", "<leader>cc", function()
-	require('elohim.runc').runc()
+	vim.ui.input({
+		prompt = "Run Command: ",
+	}, function(input)
+		vim.cmd(string.format("!%s", input))
+	end)
 end)
-vim.keymap.set('n', '<leader>af', function()
-	vim.cmd('ALEFix\nwrite!')
-	print("ALE fixed document")
-end
-)
 -- vim.keymap.set('n', "<leader>t", vim.cmd.FloatermToggle)
 vim.keymap.set('t', "<leader>x", vim.cmd.FloatermToggle)
 -- vim.keymap.set('n', "<leader>tn", vim.cmd.TablineBufferNext)
