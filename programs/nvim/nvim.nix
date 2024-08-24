@@ -5,7 +5,6 @@ enable = true;
 viAlias = true;
 vimAlias = true;
 vimdiffAlias = true;
-};
 extraLuaConfig = ''
 vim.keymap.set("i", "jk", "<ESC>")
 vim.opt.relativenumber = true
@@ -22,4 +21,5 @@ vim.opt.endofline = false
 vim.cmd('autocmd BufRead,BufNewFile user-data set filetype=yaml')
 
 '';
+};
 }
