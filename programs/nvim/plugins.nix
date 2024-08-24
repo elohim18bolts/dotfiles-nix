@@ -41,7 +41,6 @@ in
       typescript
     ]
     ))
-
     harpoon
     undotree
     vim-fugitive
@@ -55,6 +54,7 @@ in
       plugin = nvim-cmp;
       config = toLuaFile ./plugins/nvim-cmp.lua;
     }
+    orgmode
     cmp-buffer
     cmp-path
     cmp-cmdline
