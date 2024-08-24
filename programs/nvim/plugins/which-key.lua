@@ -2,6 +2,9 @@ local wk = require('which-key')
 wk.add({
 	mode = { "n", "v" },
 	{
+		{ "<leader>pv", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
+	},
+	{
 		{ "<leader> f", group = "File" },
 		{ "<leader>ff", "<cmd>Telescope find_files<cr>",  desc = "Find File" },
 		{ "<leader>fp", "<cmd>Telescope git_files<cr>",   desc = "Find File In Project" },
