@@ -16,3 +16,17 @@ vim.keymap.set('t', "<leader>x", vim.cmd.FloatermToggle)
 -- vim.keymap.set('n', "<leader>tn", vim.cmd.TablineBufferNext)
 -- vim.keymap.set('n', "<leader>tp", vim.cmd.TablineBufferPrevious)
 -- vim.keymap.set('n', "<leader>th", vim.cmd.TablineToggleShowAllBuffers)
+vim.opt.relativenumber = true
+vim.opt.clipboard = "unnamedplus"
+vim.opt.cursorline = true
+vim.opt.scrolloff = 15
+vim.opt.foldmethod = "expr"
+vim.opt.foldlevel = 20
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.binary = true
+vim.opt.endofline = false
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.softtabstop = 2
+vim.cmd('autocmd BufRead,BufNewFile user-data set filetype=yaml')
