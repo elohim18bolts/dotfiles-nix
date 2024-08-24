@@ -22,5 +22,5 @@ vim.cmd('autocmd BufRead,BufNewFile user-data set filetype=yaml')
 
 '';
 };
-imports = [ "./packages.nix"]
+imports = [ "./packages.nix"];
 }
