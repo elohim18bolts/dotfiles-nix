@@ -25,7 +25,7 @@ in
     {
      plugin = nord-nvim;
      config = toLua ''
-       vim.cmd([[colorscheme gruvbox]])
+       vim.cmd([[colorscheme nord]])
        '';
     }
     {
