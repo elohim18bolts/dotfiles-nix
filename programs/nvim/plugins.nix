@@ -10,15 +10,7 @@ in
 
     {
       plugin = lualine-nvim;
-      config = toLua ''
-        require('lualine').setup {
-            options = {
-              -- ... your lualine config
-              theme = 'nord'
-              -- ... your lualine config
-            }
-          }
-      '';
+      config = toLuaFile ./plugins/lualine.lua;
     }
 
     tabline-nvim
