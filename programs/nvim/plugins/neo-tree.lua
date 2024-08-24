@@ -151,6 +151,19 @@ require("neo-tree").setup({
 		}
 	},
 	nesting_rules = {},
+	event_handlers = {
+
+		{
+			event = "file_open_requested",
+			handler = function()
+				-- auto close
+				-- vim.cmd("Neotree close")
+				-- OR
+				require("neo-tree.command").execute({ action = "toggle" })
+			end
+		},
+
+	},
 	filesystem = {
 		filtered_items = {
 			visible = false, -- when true, they will just be displayed differently than normal items
