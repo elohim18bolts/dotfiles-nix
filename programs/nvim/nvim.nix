@@ -18,9 +18,8 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.binary = true
 vim.opt.endofline = false
 
-
 vim.cmd('autocmd BufRead,BufNewFile user-data set filetype=yaml')
-
+${builtins.readFile ./plugins/remap.lua}
 '';
 };
 imports = [ ./plugins.nix ./packages.nix ];
