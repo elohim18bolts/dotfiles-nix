@@ -74,6 +74,7 @@
     ./programs/emacs.nix
     ./configs/fonts.nix
     ./programs/ls_colors/ls.nix
+./programs/nvim/nvim.nix
   ];
 
   home.sessionVariables = {
