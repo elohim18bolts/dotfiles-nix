@@ -159,7 +159,7 @@ require("neo-tree").setup({
 				-- auto close
 				-- vim.cmd("Neotree close")
 				-- OR
-				require("neo-tree.command").execute({ action = "toggle" })
+				require("neo-tree.command").execute({ action = "close" })
 			end
 		},
 
