@@ -37,8 +37,8 @@ local conditions = {
 local config = {
 	options = {
 		-- Disable sections and component separators
-		component_separators = '',
-		section_separators = '',
+		section_separators = { left = '', right = '' },
+		component_separators = { left = '', right = '' },
 		theme = {
 			-- We are going to use lualine_c an lualine_x as left and
 			-- right section. Both are highlighted by c theme .  So we
@@ -78,18 +78,18 @@ local function ins_right(component)
 	table.insert(config.sections.lualine_x, component)
 end
 
-ins_left {
-	function()
-		return '▊'
-	end,
-	color = { fg = colors.blue }, -- Sets highlighting of component
-	padding = { left = 0, right = 1 }, -- We don't need space before this
-}
+--ins_left {
+--	function()
+--		return '▊'
+--	end,
+--	color = { fg = colors.blue }, -- Sets highlighting of component
+--	padding = { left = 0, right = 1 }, -- We don't need space before this
+--}
 
 ins_left {
 	-- mode component
 	function()
-		return ''
+		return ' '
 	end,
 	color = function()
 		-- auto change color according to neovims mode
@@ -129,7 +129,7 @@ ins_left {
 ins_left {
 	'filename',
 	cond = conditions.buffer_not_empty,
-	color = { fg = colors.magenta, gui = 'bold' },
+	color = { fg = colors.violet, gui = 'bold' },
 }
 
 ins_left { 'location' }
