@@ -76,7 +76,6 @@
     ./programs/ls_colors/ls.nix
 ./programs/nvim/nvim.nix
   ];
-  programs.emacs.enable = false;
 
   home.sessionVariables = {
     # EDITOR = "emacs";

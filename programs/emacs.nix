@@ -10,7 +10,7 @@
     ];
   };
   programs.emacs = {
-    enable = true;
+    enable = false;
     extraPackages = epkgs: with epkgs; [go-guru nix-mode lsp-mode];
   };
   home.packages = if config.programs.emacs.enable == true then [
