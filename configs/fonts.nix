@@ -2,7 +2,7 @@
 {
   home.packages = [
     pkgs.fontconfig
-    pkgs.victor-mono
+    (pkgs.nerdfonts.overrride { fonts = ["JetBrainsMono" "VictorMono" ]})
 
   ];
 
