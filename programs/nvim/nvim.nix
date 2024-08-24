@@ -6,6 +6,7 @@ viAlias = true;
 vimAlias = true;
 vimdiffAlias = true;
 extraLuaConfig = ''
+vim.g.mapleader = "<Space>"
 vim.keymap.set("i", "jk", "<ESC>")
 vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamedplus"
