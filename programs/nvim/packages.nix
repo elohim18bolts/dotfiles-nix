@@ -1,4 +1,4 @@
-{pgks,...}:
+{pkgs,...}:
 {
   programs.neovim.plugins = with pkgs.vimPlugins; [
     plenary-nvim
