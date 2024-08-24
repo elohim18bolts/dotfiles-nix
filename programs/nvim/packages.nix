@@ -9,5 +9,6 @@
     terraform-ls
     rust-analyzer
     gopls
+    cargo
   ];
 }
