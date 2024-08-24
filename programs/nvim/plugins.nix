@@ -15,9 +15,9 @@ in
 
     tabline-nvim
     {
-     plugin = nord-nvim;
+     plugin = nordic-nvim;
      config = toLua ''
-       vim.cmd([[colorscheme nord]])
+       vim.cmd([[colorscheme nordic]])
        '';
     }
     {
