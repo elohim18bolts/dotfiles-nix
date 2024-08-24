@@ -55,6 +55,7 @@ in
       config = toLuaFile ./plugins/nvim-cmp.lua;
     }
     orgmode
+    cmp-nvim-lsp
     cmp-buffer
     cmp-path
     cmp-cmdline
