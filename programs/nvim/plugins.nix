@@ -7,12 +7,24 @@ in
   programs.neovim.plugins = with pkgs.vimPlugins; [
     plenary-nvim
     telescope-nvim
-    lualine-nvim
+
+    {
+      plugin = lualine-nvim;
+      config = toLua ''
+        require('lualine').setup {
+            options = {
+              -- ... your lualine config
+              theme = 'nord'
+              -- ... your lualine config
+            }
+          }
+      '';
+    }
+
     tabline-nvim
     {
-     plugin = gruvbox-nvim;
+     plugin = nord-nvim;
      config = toLua ''
-       vim.o.background = "dark" -- or "light" for light mode
        vim.cmd([[colorscheme gruvbox]])
        '';
     }
@@ -41,8 +53,16 @@ in
     harpoon
     undotree
     vim-fugitive
-    nvim-autopairs
-    nvim-cmp
+    {
+    plugin = nvim-autopairs;
+    config = toLua ''
+       require("nvim-autopairs").setup()
+    '';
+    }
+    {
+      plugin = nvim-cmp;
+      config = toLuaFile ./plugins/nvim-cmp.lua;
+    }
     cmp-buffer
     cmp-path
     cmp-cmdline
