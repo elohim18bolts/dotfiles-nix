@@ -47,12 +47,16 @@ in
     vim-vsnip
     ansible-vim
     vim-nix
-    nvim-tree
+    nvim-web-devicons
+    {
+     plugin = neo-tree-nvim;
+     config = toLuaFile ./plugins/neo-tree.lua;
+    }
     oil-nvim
     {
     plugin = which-key-nvim;
     config = toLuaFile ./plugins/which-key.lua;
-  }
+    }
     vim-floaterm
     gitsigns-nvim
     rainbow-delimiters-nvim
