@@ -30,9 +30,10 @@ require('lualine').setup {
 		}
 	},
 	sections = {
-		lualine_a = { function()
-			return '  '
-		end,
+		lualine_a = {
+			'mode',
+			icons_enabled = true,
+			icon = '  ',
 			color = function()
 				-- auto change color according to neovims mode
 				local mode_color = {
