@@ -1,4 +1,4 @@
-{pkgs,...}:
+{ pkgs, ... }:
 let
   toLua = str: "lua << EOF\n${str}\nEOF\n";
   toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
@@ -13,50 +13,54 @@ in
       config = toLuaFile ./plugins/lualine.lua;
     }
 
-    tabline-nvim
     {
-     plugin = nord-nvim;
-     config = toLua ''
-       vim.cmd([[colorscheme nord]])
-       '';
-    }
-    {
-     plugin = nvim-lspconfig;
-     config = toLuaFile ./plugins/lspconfig.lua;
+      plugin = tabline-nvim;
+      config = toLuaFile ./plugins/tabline.lua;
     }
 
-    (nvim-treesitter.withPlugins (p: 
-    with p;[
-      org
-      nix
-      markdown
-      c
-      lua
-      rust
-      vimdoc
-      go
-      json5
-      yaml
-      javascript
-      typescript
-    ]
+    {
+      plugin = nord-nvim;
+      config = toLua ''
+        vim.cmd([[colorscheme nord]])
+      '';
+    }
+    {
+      plugin = nvim-lspconfig;
+      config = toLuaFile ./plugins/lspconfig.lua;
+    }
+
+    (nvim-treesitter.withPlugins (p:
+      with p;[
+        org
+        nix
+        markdown
+        c
+        lua
+        rust
+        vimdoc
+        go
+        json5
+        yaml
+        javascript
+        typescript
+      ]
     ))
     harpoon
     undotree
     vim-fugitive
     {
-    plugin = nvim-autopairs;
-    config = toLua ''
-       require("nvim-autopairs").setup()
-    '';
+      plugin = nvim-autopairs;
+      config = toLua ''
+        require("nvim-autopairs").setup()
+      '';
     }
     {
       plugin = nvim-cmp;
       config = toLuaFile ./plugins/nvim-cmp.lua;
     }
     {
-    plugin = orgmode;
-    config = toLua ''require("orgmode").setup{}'';
+      plugin = orgmode;
+      config = toLua ''require("orgmode").setup{}'';
     }
     cmp-nvim-lsp
     cmp-buffer
@@ -68,13 +72,13 @@ in
     vim-nix
     nvim-web-devicons
     {
-     plugin = neo-tree-nvim;
-     config = toLuaFile ./plugins/neo-tree.lua;
+      plugin = neo-tree-nvim;
+      config = toLuaFile ./plugins/neo-tree.lua;
     }
     oil-nvim
     {
-    plugin = which-key-nvim;
-    config = toLuaFile ./plugins/which-key.lua;
+      plugin = which-key-nvim;
+      config = toLuaFile ./plugins/which-key.lua;
     }
     vim-floaterm
     gitsigns-nvim
