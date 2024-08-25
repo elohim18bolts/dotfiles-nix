@@ -31,5 +31,8 @@
               };
             };
     });
+    formatter = nixpkgs.lib.genAttrs systems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
+
+
   };
 }
