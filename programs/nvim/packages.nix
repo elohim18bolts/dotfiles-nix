@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   programs.neovim.extraPackages = with pkgs; [
     pyright
@@ -9,6 +9,7 @@
     terraform-ls
     rust-analyzer
     gopls
+    go
     cargo
     nixpkgs-fmt
   ];
