@@ -16,11 +16,12 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs;[
+    go
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     #pkgs.hello
-    
+
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -70,10 +71,10 @@
   imports = [
     #./programs/emacs.nix
     ./programs/zsh.nix
-#  	  ./programs/emacs.nix
+    #  	  ./programs/emacs.nix
     ./configs/fonts.nix
     ./programs/ls_colors/ls.nix
-./programs/nvim/nvim.nix
+    ./programs/nvim/nvim.nix
   ];
 
   home.sessionVariables = {
