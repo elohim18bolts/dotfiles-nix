@@ -10,5 +10,6 @@
     rust-analyzer
     gopls
     cargo
+    nixpkgs-fmt
   ];
 }
