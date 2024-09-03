@@ -5,7 +5,7 @@
     settings = {
       icons = true;
       shellopts = "-eu";
-      ifs = "\n";
+      ifs = "\\n";
       scrolloff = 10;
     };
     extraConfig =
