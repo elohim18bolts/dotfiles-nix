@@ -1,6 +1,10 @@
 { pkgs, ... }: {
+  xdg.configFile."lf/icons".source = ./icons;
   programs.lf = {
     enable = true;
+    settings = {
+      icons = true;
+    };
     extraConfig =
       let
         previewer = pkgs.writeShellScriptBin "pv.sh"
