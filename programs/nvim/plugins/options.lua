@@ -5,11 +5,11 @@ vim.keymap.set("i", "jk", "<ESC>")
 vim.keymap.set("n", "<leader>w", "<C-w>")
 vim.keymap.set("n", "<leader>fs", ":w<CR>")
 vim.keymap.set("n", "<leader>cc", function()
-	vim.ui.input({
-		prompt = "Run Command: ",
-	}, function(input)
-		vim.cmd(string.format("!%s", input))
-	end)
+  vim.ui.input({
+    prompt = "Run Command: ",
+  }, function(input)
+    vim.cmd(string.format("!%s", input))
+  end)
 end)
 -- vim.keymap.set('n', "<leader>t", vim.cmd.FloatermToggle)
 vim.keymap.set('t', "<leader>x", vim.cmd.FloatermToggle)
@@ -30,3 +30,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.softtabstop = 2
 vim.cmd('autocmd BufRead,BufNewFile user-data set filetype=yaml')
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufRead', 'BufNewFile' }, {
+  pattern = 'lfrc',
+  command = 'set filetype=vim',
+})
