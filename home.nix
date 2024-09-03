@@ -76,6 +76,7 @@
     ./configs/fonts.nix
     ./programs/ls_colors/ls.nix
     ./programs/nvim/nvim.nix
+    ./programs/lf/lf.nix
   ];
 
   home.sessionVariables = {
