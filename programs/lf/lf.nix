@@ -4,6 +4,9 @@
     enable = true;
     settings = {
       icons = true;
+      shellopts = "-eu";
+      ifs = "\n";
+      scrolloff = 10;
     };
     extraConfig =
       let
@@ -26,8 +29,6 @@
           '';
       in
       ''
-        set shellopts '-eu'
-        set ifs "\n"
         set previewer  ${previewer}/bin/pv.sh
         set cleaner  ${cleaner}/bin/cleaner.sh
       '';
