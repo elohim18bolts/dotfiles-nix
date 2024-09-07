@@ -12,13 +12,15 @@
     autocd = true;
     defaultKeymap = "viins";
     initExtra = ''
-    '' + lib.optionals stdenv.isDarwin ''
-      # Nix
-      if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-        . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-      fi
-      # End Nix
-    '';
+    '' + lib.concatStrings (lib.optionals stdenv.isDarwin [
+      ''
+        # Nix
+        if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+          . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+        fi
+        # End Nix
+      ''
+    ]);
 
     plugins = [
       rec{
