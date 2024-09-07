@@ -31,6 +31,7 @@
 
             "linux" = home-manager.lib.homeManagerConfiguration {
               # Note: I am sure this could be done better with flake-utils or something
+              inherit pkgs;
               modules = [ ./systems/linux.nix ./home.nix ]; # Defined later
             };
           };
