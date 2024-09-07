@@ -32,6 +32,10 @@
             "linux" = home-manager.lib.homeManagerConfiguration {
               # Note: I am sure this could be done better with flake-utils or something
               inherit pkgs;
+              extraSpecialArgs = {
+                inherit inputs;
+                system = "x86_64-linux";
+              };
               modules = [ ./systems/linux.nix ./home.nix ]; # Defined later
             };
           };
