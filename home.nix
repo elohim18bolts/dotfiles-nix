@@ -19,6 +19,8 @@
   home.packages = with pkgs;[
     go
     trash-cli
+    k3d
+    kubectl
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     #pkgs.hello
