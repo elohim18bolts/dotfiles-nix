@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{ config, pkgs, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -6,20 +6,25 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     history = {
-       size = 5000;
-       save = 30000;
+      size = 5000;
+      save = 30000;
     };
     autocd = true;
     defaultKeymap = "viins";
-    initExtraFirst= ''
-zstyle ':completion:*' completer _list _expand _complete _ignored _match _approximate
-zstyle ':completion:*' file-sort name
-zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-zstyle :compinstall filename '$HOME/.zshrc'
+    initExtraFirst = ''
+      zstyle ':completion:*' completer _list _expand _complete _ignored _match _approximate
+      zstyle ':completion:*' file-sort name
+      zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+      zstyle :compinstall filename '$HOME/.zshrc'
     '';
 
     initExtra = ''
-source <(kubectl completion zsh)
+      source <(kubectl completion zsh)
+      # Nix
+      if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+        . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+      fi
+      # End Nix
     '';
 
     plugins = [
@@ -46,13 +51,13 @@ source <(kubectl completion zsh)
   programs.starship = {
     enable = true;
   };
-  programs.keychain =  {
+  programs.keychain = {
     enable = true;
-    keys = [];
-    extraFlags = ["--quiet" "$\{$(find ~/.ssh -iname '*.pub')%.pub\}" ];
+    keys = [ ];
+    extraFlags = [ "--quiet" "$\{$(find ~/.ssh -iname '*.pub')%.pub\}" ];
   };
   home.sessionVariables = {
-    NVM_DIR="$([ -z \"$\{XDG_CONFIG_HOME-\}\" ] && printf %s \"$\{HOME\}/.nvm\" || printf %s \"/usr/share/nvm\")";
+    NVM_DIR = "$([ -z \"$\{XDG_CONFIG_HOME-\}\" ] && printf %s \"$\{HOME\}/.nvm\" || printf %s \"/usr/share/nvm\")";
     TERM = "xterm";
     EDITOR = "nvim";
     SYSTEMD_EDITOR = "nvim";
