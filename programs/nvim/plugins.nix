@@ -5,6 +5,10 @@ let
 in
 {
   programs.neovim.plugins = with pkgs.vimPlugins; [
+    {
+      plugin = packer-nvim;
+      config = toLuaFile ./plugins/packer.lua;
+    }
     plenary-nvim
     telescope-nvim
 

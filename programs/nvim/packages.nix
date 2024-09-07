@@ -12,5 +12,6 @@
     go
     cargo
     nixpkgs-fmt
+    nodejs_20
   ];
 }
