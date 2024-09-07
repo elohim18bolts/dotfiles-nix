@@ -11,15 +11,7 @@
     };
     autocd = true;
     defaultKeymap = "viins";
-    initExtraFirst = ''
-      zstyle ':completion:*' completer _list _expand _complete _ignored _match _approximate
-      zstyle ':completion:*' file-sort name
-      zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-      zstyle :compinstall filename '$HOME/.zshrc'
-    '';
-
     initExtra = ''
-      source <(kubectl completion zsh)
     '' + lib.optionals stdenv.isDarwin ''
       # Nix
       if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
