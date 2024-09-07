@@ -1,11 +1,13 @@
-{config, pkgs, ...}:
+{ pkgs, ... }:
 {
   imports = [
-    ../configs/zsh.nix
-
+    (import ../configs/zsh.nix {
+      inherit pkgs;
+      inherit (pkgs) stdenv lib;
+    })
   ];
 
-  home.packages =  [
+  home. packages = [
     pkgs.zsh
     pkgs.zsh-fzf-tab
   ];

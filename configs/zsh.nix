@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ lib, pkgs, stdenv, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -20,6 +20,7 @@
 
     initExtra = ''
       source <(kubectl completion zsh)
+    '' + lib.optionals stdenv.isDarwin ''
       # Nix
       if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
         . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
