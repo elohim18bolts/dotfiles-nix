@@ -41,9 +41,6 @@
   programs.fzf = {
     enable = true;
   };
-  programs.starship = {
-    enable = true;
-  };
   programs.keychain = {
     enable = true;
     keys = [ ];
