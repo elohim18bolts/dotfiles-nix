@@ -76,8 +76,9 @@
   #
   imports = [
     #./programs/emacs.nix
-    ./programs/zsh.nix
+    ./configs/zsh.nix
     ./configs/fonts.nix
+    ./configs/starship.nix
     #  	  ./programs/emacs.nix
     ./programs/ls_colors/ls.nix
     ./programs/nvim/nvim.nix
