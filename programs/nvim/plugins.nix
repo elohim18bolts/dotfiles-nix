@@ -83,6 +83,7 @@ in
         yaml
         javascript
         typescript
+        bash
       ]
     ))
     harpoon
