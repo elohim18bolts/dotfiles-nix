@@ -1,14 +1,50 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   toLua = str: "lua << EOF\n${str}\nEOF\n";
   toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
+  sgBaseName =
+    if pkgs.stdenv.isAarch64 then
+      (lib.optionalString pkgs.stdenv.isLinux "sg-aarch64-unknown-linux-gnu") +
+      (lib.optionalString pkgs.stdenv.isDarwin "sg-aarch64-apple-darwin")
+    else
+      (lib.optionalString pkgs.stdenv.isLinux "sg-x86_64-unknown-linux-gnu") +
+      (lib.optionalString pkgs.stdenv.isDarwin "sg-x86_64-apple-darwin");
 in
 {
+
+  nixpkgs = {
+    overlays = [
+      (final: prev:
+        {
+          vimPlugins = prev.vimPlugins // {
+            sg-nvimCustom = prev.vimUtils.buildVimPlugin {
+              pname = "sg-nvimCustom";
+              version = "v1.1.0";
+              src = pkgs.fetchFromGitHub {
+                owner = "sourcegraph";
+                repo = "sg.nvim";
+                rev = "8d7735bfb810d919806da1e1c4f839fbc6ecccfe";
+                sha256 = "1wb6k3zyk5xa2s6v9x5kly9wv6hi4mpw9630fkyj0ixc4z67y4j9";
+              };
+              binSrc = pkgs.fetchzip {
+                url = "https://github.com/sourcegraph/sg.nvim/releases/download/v1.1.0/${sgBaseName}.tar.xz";
+                extension = "tar.xz";
+                sha256 = "qt3HFRdj30kJ2HxS0rY78BLFEGP958lAyVWLXclz8to=";
+              };
+              postInstall = ''
+                mkdir -p $out/dist
+                cp -r $binSrc/* $out/dist
+              '';
+            };
+          };
+        })
+    ];
+  };
   programs.neovim.plugins = with pkgs.vimPlugins; [
-    {
-      plugin = packer-nvim;
-      config = toLuaFile ./plugins/packer.lua;
-    }
+    # {
+    #   plugin = packer-nvim;
+    #   config = toLuaFile ./plugins/packer.lua;
+    # }
     plenary-nvim
     telescope-nvim
 
@@ -90,6 +126,10 @@ in
     indent-blankline-nvim
     hologram-nvim
     go-nvim
+    {
+      plugin = sg-nvimCustom;
+      config = toLuaFile ./plugins/sg.lua;
+    }
 
   ];
 }
