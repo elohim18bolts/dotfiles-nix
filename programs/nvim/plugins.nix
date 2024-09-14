@@ -51,11 +51,18 @@ in
       plugin = lualine-nvim;
       config = toLuaFile ./plugins/lualine.lua;
     }
-
     {
-      plugin = tabline-nvim;
-      config = toLuaFile ./plugins/tabline.lua;
+
+      plugin = neoscroll-nvim;
+      config = toLua ''
+        require("neoscroll").setup()
+      '';
     }
+
+    # {
+    #   plugin = tabline-nvim;
+    #   config = toLuaFile ./plugins/tabline.lua;
+    # }
     {
       plugin = nord-nvim;
       config = toLua ''
