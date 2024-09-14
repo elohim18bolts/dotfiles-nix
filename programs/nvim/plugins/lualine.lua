@@ -36,11 +36,7 @@ lualine.setup {
       left = "⋮",
       right = "⋮",
     },
-
-    section_separators = {
-      left = "",
-      right = "",
-    },
+    section_separators = { left = '', right = '' },
     disabled_filetypes = {
       statusline = {
         'help', 'terminal', 'NvimTree', 'NvimTreeGit', 'NvimTreeGitStash', 'NvimTreeGit', 'neo-tree'
@@ -113,6 +109,9 @@ lualine.setup {
         color = {
           fg = colors.nord0,
           bg = colors.nord6,
+        },
+        separator = {
+          right = "",
         }
       },
       {
@@ -169,7 +168,7 @@ lualine.setup {
           }
         },
         separator = {
-          right = "",
+          right = ""
         }
       }
     },
@@ -188,7 +187,7 @@ lualine.setup {
           newfile = " ",
         },
         separator = {
-          left = "",
+          left = ""
         },
         color = {
           fg = colors.nord6,
@@ -210,7 +209,7 @@ lualine.setup {
           }
         },
         separator = {
-          left = "",
+          left = ""
         }
       }
     },
