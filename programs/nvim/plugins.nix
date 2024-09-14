@@ -104,6 +104,7 @@ in
     vim-vsnip
     ansible-vim
     vim-nix
+
     nvim-web-devicons
     {
       plugin = neo-tree-nvim;

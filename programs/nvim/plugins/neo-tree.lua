@@ -1,4 +1,13 @@
+local nord = require("nord.colors")
+
+
+vim.cmd [[
+ hi link NeoTreeDirectoryName nord.nord4_gui
+ hi link NeoTreeDirectoryIcon nord.nord9_gui
+]]
+
 require("neo-tree").setup({
+
   close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
   popup_border_style = "rounded",
   enable_git_status = true,
