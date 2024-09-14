@@ -28,7 +28,8 @@ local colors = {
   nord14   = "#a3be8c",
   nord15   = "#b48ead",
 }
-require('lualine').setup {
+local lualine = require('lualine')
+lualine.setup {
   options = {
     theme = 'nord',
     component_separators = {
