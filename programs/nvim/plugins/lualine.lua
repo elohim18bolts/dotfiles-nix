@@ -92,9 +92,28 @@ require('lualine').setup {
           return { fg = mode_color[vim.fn.mode()], bg = colors.black }
         end,
         padding = { right = 1 },
+        separator = {
+          right = "",
+        },
       }
     },
     lualine_b = {
+      {
+        "filesize",
+        color = {
+          fg = colors.nord0,
+          bg = colors.nord6,
+        },
+      },
+      {
+        "filetype",
+        colored = false,
+        icon_only = true,
+        color = {
+          fg = colors.nord0,
+          bg = colors.nord6,
+        }
+      },
       {
         'branch',
         icon = "",
@@ -113,7 +132,9 @@ require('lualine').setup {
     },
     lualine_y = {},
     lualine_z = {
-      { name = "%l:%cj" },
+      {
+        "%l:%c",
+      },
       {
         "fileformat",
         icon_only = true,
@@ -156,47 +177,7 @@ require('lualine').setup {
       }
     },
     lualine_x = {},
-    lualine_y = {},
-    lualine_z = {
-      {
-        "tabs",
-        tabs_color = {
-          active = {
-            fg = colors.nord6,
-            bg = colors.nord10,
-          },
-          inactive = {
-            fg = colors.nord6,
-            bg = colors.nord1,
-          }
-        },
-        separator = {
-          left = "",
-        }
-      }
-    },
-  },
-  winbar = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {
-      {
-        name = require("nvim-navic").get_location,
-        cond = require("nvim-navic").is_available,
-      }
-    },
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = {
-      {
-        "filetype",
-        colored = false,
-        icon_only = true,
-        color = {
-          fg = colors.nord0,
-          bg = colors.nord6,
-        }
-      },
+    lualine_y = {
       {
         "filename",
         file_status = true,
@@ -218,7 +199,26 @@ require('lualine').setup {
         },
       }
     },
+    lualine_z = {
+      {
+        "tabs",
+        tabs_color = {
+          active = {
+            fg = colors.nord6,
+            bg = colors.nord10,
+          },
+          inactive = {
+            fg = colors.nord6,
+            bg = colors.nord1,
+          }
+        },
+        separator = {
+          left = "",
+        }
+      }
+    },
   },
+  winbar = {},
   inactive_winbar = {
     lualine_a = {},
     lualine_b = {},
