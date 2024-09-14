@@ -52,6 +52,12 @@ in
       config = toLuaFile ./plugins/lualine.lua;
     }
     {
+      plugin = nvim-colorizer-lua;
+      config = toLua ''
+        require("colorizer").setup()
+      '';
+    }
+    {
 
       plugin = neoscroll-nvim;
       config = toLua ''
