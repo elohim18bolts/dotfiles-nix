@@ -11,19 +11,48 @@ local colors = {
   blue     = '#51afef',
   red      = '#ec5f67',
   black    = '#000000',
+  nord0    = "#2e3440",
+  nord1    = "#3b4252",
+  nord2    = "#434c5e",
+  nord3    = "#4c566a",
+  nord4    = "#d8dee9",
+  nord5    = "#e5e9f0",
+  nord6    = "#eceff4",
+  nord7    = "#8fbcbb",
+  nord8    = "#88c0d0",
+  nord9    = "#81a1c1",
+  nord10   = "#5e81ac",
+  nord11   = "#bf616a",
+  nord12   = "#d08770",
+  nord13   = "#ebcb8b",
+  nord14   = "#a3be8c",
+  nord15   = "#b48ead",
 }
 require('lualine').setup {
   options = {
     theme = 'nord',
-    section_separators = { left = '', right = '' },
-    component_separators = { left = '', right = '' },
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
+    component_separators = {
+      left = "⋮",
+      right = "⋮",
     },
-    ignore_focus = {},
-    always_divide_middle = true,
-    globalstatus = false,
+
+    section_separators = {
+      left = "",
+      right = "",
+    },
+    disabled_filetypes = {
+      statusline = {
+        'help', 'terminal', 'NvimTree', 'NvimTreeGit', 'NvimTreeGitStash', 'NvimTreeGit', 'neo-tree'
+      },
+      winbar = {
+        'help', 'terminal', 'NvimTree', 'NvimTreeGit', 'NvimTreeGitStash', 'NvimTreeGit', 'neo-tree'
+      },
+    },
+    ignore_focus = {
+      'help', 'terminal', 'NvimTree', 'NvimTreeGit', 'NvimTreeGitStash', 'neo-tree'
+    },
+    --always_divide_middle = true,
+    globalstatus = true,
     refresh = {
       statusline = 1000,
       tabline = 1000,
@@ -65,11 +94,31 @@ require('lualine').setup {
         padding = { right = 1 },
       }
     },
-    lualine_b = { 'branch', 'diff', 'diagnostics' },
-    lualine_c = { 'filesize', 'filename' },
-    lualine_x = { 'encoding', 'fileformat', 'filetype' },
-    lualine_y = { 'progress' },
-    lualine_z = { 'location' }
+    lualine_b = {
+      {
+        'branch',
+        icon = "",
+
+      },
+      {
+        'diff',
+      }
+    },
+    lualine_c = {},
+    lualine_x = {
+      {
+        'diagnostics',
+        update_in_insert = true,
+      }
+    },
+    lualine_y = {},
+    lualine_z = {
+      { name = "%l:%cj" },
+      {
+        "fileformat",
+        icon_only = true,
+      }
+    }
   },
   inactive_sections = {
     lualine_a = {},
@@ -79,8 +128,232 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = {}
   },
-  tabline = {},
-  winbar = {},
-  inactive_winbar = {},
+  tabline = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {
+      {
+        "windows",
+        symbols = {
+          modified = "",
+          readonly = "",
+          unnamed = " ",
+          newfile = " ",
+        },
+        windows_color = {
+          active = {
+            fg = colors.nord6,
+            bg = colors.nord10,
+          },
+          inactive = {
+            fg = colors.nord6,
+            bg = colors.nord1,
+          }
+        },
+        separator = {
+          right = "",
+        }
+      }
+    },
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {
+      {
+        "tabs",
+        tabs_color = {
+          active = {
+            fg = colors.nord6,
+            bg = colors.nord10,
+          },
+          inactive = {
+            fg = colors.nord6,
+            bg = colors.nord1,
+          }
+        },
+        separator = {
+          left = "",
+        }
+      }
+    },
+  },
+  winbar = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {
+      {
+        name = require("nvim-navic").get_location,
+        cond = require("nvim-navic").is_available,
+      }
+    },
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {
+      {
+        "filetype",
+        colored = false,
+        icon_only = true,
+        color = {
+          fg = colors.nord0,
+          bg = colors.nord6,
+        }
+      },
+      {
+        "filename",
+        file_status = true,
+        shorting_target = 25,
+        path = 1,
+        symbols = {
+
+          modified = "",
+          readonly = "",
+          unnamed = " ",
+          newfile = " ",
+        },
+        separator = {
+          left = "",
+        },
+        color = {
+          fg = colors.nord6,
+          bg = colors.nord10,
+        },
+      }
+    },
+  },
+  inactive_winbar = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {
+      {
+        "filetype",
+        colored = false,
+        icon_only = true,
+        color = {
+          fg = colors.nord6,
+          bg = colors.nord1,
+        }
+      },
+      {
+        "filename",
+        file_status = true,
+        path = 1,
+        shorting_target = 25,
+        symbols = {
+
+          modified = "",
+          readonly = "",
+          unnamed = " ",
+          newfile = " ",
+        },
+        separator = {
+          left = "",
+        },
+        color = {
+          fg = colors.nord6,
+          bg = colors.nord1,
+        }
+      }
+    },
+  },
+  highlight = {
+    statusline = {
+      bg = colors.nord0,
+    },
+    lualine_b_windows_active = {
+      fg = colors.nord6,
+      bg = colors.nord10
+    },
+    lualine_b_windows_inactive = {
+      fg = colors.nord6,
+      bg = colors.nord1,
+    },
+    lualine_b_diff_modified_terminal = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_modified_inactive = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_removed_terminal = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_removed_inactive = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_modified_replace = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_modified_command = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_removed_replace = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_removed_command = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_modified_visual = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_modified_normal = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_modified_insert = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_removed_visual = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_removed_normal = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_removed_insert = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_added_terminal = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_added_inactive = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_added_replace = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_added_command = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_added_visual = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_added_normal = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+    lualine_b_diff_added_insert = {
+      fg = colors.nord6,
+      bg = colors.nord10,
+    },
+
+  },
   extensions = {}
 }
