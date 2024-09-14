@@ -41,10 +41,9 @@ in
     ];
   };
   programs.neovim.plugins = with pkgs.vimPlugins; [
-    # {
-    #   plugin = packer-nvim;
-    #   config = toLuaFile ./plugins/packer.lua;
-    # }
+    (
+      nvim-treesitter.withPlugins (_: nvim-treesitter.allGrammars)
+    )
     plenary-nvim
     telescope-nvim
 
@@ -57,7 +56,6 @@ in
       plugin = tabline-nvim;
       config = toLuaFile ./plugins/tabline.lua;
     }
-
     {
       plugin = nord-nvim;
       config = toLua ''
@@ -68,24 +66,10 @@ in
       plugin = nvim-lspconfig;
       config = toLuaFile ./plugins/lspconfig.lua;
     }
-
-    (nvim-treesitter.withPlugins (p:
-      with p;[
-        org
-        nix
-        markdown
-        c
-        lua
-        rust
-        vimdoc
-        go
-        json5
-        yaml
-        javascript
-        typescript
-        bash
-      ]
-    ))
+    {
+      plugin = sg-nvimCustom;
+      config = toLuaFile ./plugins/sg.lua;
+    }
     harpoon
     undotree
     vim-fugitive
@@ -98,10 +82,6 @@ in
     {
       plugin = nvim-cmp;
       config = toLuaFile ./plugins/nvim-cmp.lua;
-    }
-    {
-      plugin = orgmode;
-      config = toLua ''require("orgmode").setup{}'';
     }
     cmp-nvim-lsp
     cmp-buffer
@@ -127,10 +107,14 @@ in
     indent-blankline-nvim
     hologram-nvim
     go-nvim
-    {
-      plugin = sg-nvimCustom;
-      config = toLuaFile ./plugins/sg.lua;
-    }
-
+    # {
+    #   plugin = orgmode;
+    #   config = toLua ''
+    #       require('orgmode').setup({
+    #       org_agenda_files = '~/orgfiles/**/*',
+    #       org_default_notes_file = '~/orgfiles/refile.org',
+    #     })
+    #   '';
+    # }
   ];
 }
