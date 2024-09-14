@@ -154,14 +154,14 @@ require('lualine').setup {
     lualine_b = {},
     lualine_c = {
       {
-        "windows",
+        "buffers",
         symbols = {
           modified = "",
           readonly = "",
           unnamed = " ",
           newfile = " ",
         },
-        windows_color = {
+        buffers_color = {
           active = {
             fg = colors.nord6,
             bg = colors.nord10,
@@ -261,11 +261,11 @@ require('lualine').setup {
     statusline = {
       bg = colors.nord0,
     },
-    lualine_b_windows_active = {
+    lualine_b_buffers_active = {
       fg = colors.nord6,
       bg = colors.nord10
     },
-    lualine_b_windows_inactive = {
+    lualine_b_buffers_inactive = {
       fg = colors.nord6,
       bg = colors.nord1,
     },
