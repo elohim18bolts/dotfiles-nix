@@ -18,6 +18,7 @@ vim.keymap.set('t', "<leader>x", vim.cmd.FloatermToggle)
 -- vim.keymap.set('n', "<leader>th", vim.cmd.TablineToggleShowAllBuffers)
 vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamedplus"
+vim.opt.linebreak = true
 vim.opt.cursorline = true
 vim.opt.scrolloff = 15
 vim.opt.foldmethod = "expr"
