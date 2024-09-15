@@ -11,7 +11,7 @@ let
       (lib.optionalString pkgs.stdenv.isDarwin "sg-x86_64-apple-darwin");
   sgSha256 =
     if pkgs.stdenv.isAarch64 then
-      (lib.optionalString pkgs.stdenv.isLinux "XhLsefsxdPlvDBj9ftap0qGaq+YiNLmER12ttyHT+f0=") +
+      (lib.optionalString pkgs.stdenv.isLinux "XhLsefsxdPlvDBj9ftap0qGak+YiNLmER12ttyHT+f0=") +
       (lib.optionalString pkgs.stdenv.isDarwin "qt3HFRdj30kJ2HxS0rY78BLFEGP958lAyVWLXclz8to=")
     else
       (lib.optionalString pkgs.stdenv.isLinux "sg-x86_64-unknown-linux-gnu") +
