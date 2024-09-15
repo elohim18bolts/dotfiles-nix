@@ -9,6 +9,13 @@ let
     else
       (lib.optionalString pkgs.stdenv.isLinux "sg-x86_64-unknown-linux-gnu") +
       (lib.optionalString pkgs.stdenv.isDarwin "sg-x86_64-apple-darwin");
+  sgSha256 =
+    if pkgs.stdenv.isAarch64 then
+      (lib.optionalString pkgs.stdenv.isLinux "XhLsefsxdPlvDBj9ftap0qGaq+YinLNLmER12ttyHT+f0=") +
+      (lib.optionalString pkgs.stdenv.isDarwin "qt3HFRdj30kJ2HxS0rY78BLFEGP958lAyVWLXclz8to=")
+    else
+      (lib.optionalString pkgs.stdenv.isLinux "sg-x86_64-unknown-linux-gnu") +
+      (lib.optionalString pkgs.stdenv.isDarwin "sg-x86_64-apple-darwin");
 in
 {
 
@@ -29,7 +36,7 @@ in
               binSrc = pkgs.fetchzip {
                 url = "https://github.com/sourcegraph/sg.nvim/releases/download/v1.1.0/${sgBaseName}.tar.xz";
                 extension = "tar.xz";
-                sha256 = "qt3HFRdj30kJ2HxS0rY78BLFEGP958lAyVWLXclz8to=";
+                sha256 = "${sgSha256}";
               };
               postInstall = ''
                 mkdir -p $out/dist
