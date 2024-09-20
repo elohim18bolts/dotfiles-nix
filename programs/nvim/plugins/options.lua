@@ -17,6 +17,7 @@ vim.keymap.set('t', "<leader>x", vim.cmd.FloatermToggle)
 -- vim.keymap.set('n', "<leader>tp", vim.cmd.TablineBufferPrevious)
 -- vim.keymap.set('n', "<leader>th", vim.cmd.TablineToggleShowAllBuffers)
 vim.opt.relativenumber = true
+vim.opt.number = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.linebreak = true
 vim.opt.cursorline = true
