@@ -283,5 +283,5 @@ require("neo-tree").setup({
     }
   }
 })
-vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { bg = "#434c5e" })
-vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { bg = "#d8dee9" })
+vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = "#434c5e" })
+vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#d8dee9" })
