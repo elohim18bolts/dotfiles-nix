@@ -154,17 +154,17 @@ lualine.setup {
         symbols = {
           modified = "",
           readonly = "",
-          unnamed = " ",
-          newfile = " ",
+          unnamed = "󰩋 ",
+          newfile = "󰎔 ",
         },
         buffers_color = {
           active = {
-            fg = colors.nord6,
-            bg = colors.nord10,
+            fg = colors.nord4,
+            bg = colors.nord9,
           },
           inactive = {
-            fg = colors.nord6,
-            bg = colors.nord1,
+            fg = colors.nord4,
+            bg = colors.nord2,
           }
         },
         separator = {
@@ -183,15 +183,15 @@ lualine.setup {
 
           modified = "",
           readonly = "",
-          unnamed = " ",
-          newfile = " ",
+          unnamed = "󰩋 ",
+          newfile = "󰎔 ",
         },
         separator = {
           left = ""
         },
         color = {
-          fg = colors.nord6,
-          bg = colors.nord10,
+          fg = colors.nord4,
+          bg = colors.nord9,
         },
       }
     },
@@ -200,12 +200,12 @@ lualine.setup {
         "tabs",
         tabs_color = {
           active = {
-            fg = colors.nord6,
-            bg = colors.nord10,
+            fg = colors.nord4,
+            bg = colors.nord9,
           },
           inactive = {
-            fg = colors.nord6,
-            bg = colors.nord1,
+            fg = colors.nord4,
+            bg = colors.nord2,
           }
         },
         separator = {
@@ -240,8 +240,8 @@ lualine.setup {
 
           modified = "",
           readonly = "",
-          unnamed = " ",
-          newfile = " ",
+          unnamed = "󰩋 ",
+          newfile = "󰎔 ",
         },
         separator = {
           left = "",

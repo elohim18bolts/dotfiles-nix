@@ -14,7 +14,7 @@ let
       (lib.optionalString pkgs.stdenv.isLinux "XhLsefsxdPlvDBj9ftap0qGak+YiNLmER12ttyHT+f0=") +
       (lib.optionalString pkgs.stdenv.isDarwin "qt3HFRdj30kJ2HxS0rY78BLFEGP958lAyVWLXclz8to=")
     else
-      (lib.optionalString pkgs.stdenv.isLinux "sg-x86_64-unknown-linux-gnu") +
+      (lib.optionalString pkgs.stdenv.isLinux "JdwQNtuK7wFXFXFsMFyzPaLab5u+endId4frzimJhfg=") +
       (lib.optionalString pkgs.stdenv.isDarwin "sg-x86_64-apple-darwin");
 in
 {
