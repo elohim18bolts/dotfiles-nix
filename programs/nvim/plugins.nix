@@ -112,7 +112,11 @@ in
     ansible-vim
     vim-nix
 
-    nvim-web-devicons
+    {
+      plugin = nvim-web-devicons;
+      config = toLuaFile ./plugins/nvim-web-devicons.lua;
+
+    }
     {
       plugin = neo-tree-nvim;
       config = toLuaFile ./plugins/neo-tree.lua;
