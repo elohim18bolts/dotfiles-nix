@@ -283,5 +283,7 @@ require("neo-tree").setup({
     }
   }
 })
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
 vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = "#d8dee9" })
 vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#88c0d0" })
