@@ -99,7 +99,7 @@ lualine.setup {
         "filesize",
         color = {
           fg = colors.nord0,
-          bg = colors.nord6,
+          bg = colors.nord4,
         },
       },
       {
@@ -108,7 +108,7 @@ lualine.setup {
         icon_only = true,
         color = {
           fg = colors.nord0,
-          bg = colors.nord6,
+          bg = colors.nord4,
         },
         separator = {
           right = "",
