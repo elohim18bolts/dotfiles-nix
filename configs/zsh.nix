@@ -35,6 +35,7 @@
       gic = "git commit";
       gad = "git add";
       gpo = "git push origin";
+      rm = "${pkgs.trash-cli}/bin/trash-put";
     };
   };
 
