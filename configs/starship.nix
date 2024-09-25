@@ -21,13 +21,14 @@
       directory = {
         style = "fg:#e3e5e5 bg:#769ff0";
         format = "[ $path ]($style)";
-        truncation_length = 3;
-        truncation_symbol = "…/";
+        truncation_length = 10;
+        truncation_symbol = "󰇘/";
+        home_symbol = "";
         substitutions = {
-          "Documents" = "󱔗 ";
-          "Downloads" = " ";
-          "Music" = " ";
-          "Pictures" = " ";
+          "Documents" = "";
+          "Downloads" = "";
+          "Music" = "";
+          "Pictures" = "";
         };
       };
       git_branch = {
