@@ -3,7 +3,10 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    autosuggestion.enable = true;
+    autosuggestion = {
+      enable = true;
+      highlight = "fg=#4f5b00";
+    };
     syntaxHighlighting.enable = true;
     history = {
       size = 5000;
