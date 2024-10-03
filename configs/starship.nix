@@ -39,7 +39,7 @@ in
       };
       hostname = {
         ssh_only = false;
-        ssh_symbol = "󰣀 ";
+        ssh_symbol = "󰢩 ";
         format = "[$ssh_symbol](bold ${nord3})[󰹻 $hostname](bold fg:${nord3} bg:${nord4})";
       };
       status = {
