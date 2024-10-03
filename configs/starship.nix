@@ -19,7 +19,7 @@ let
   block1 = "╭─[░▒▓](${nord4})$os$username$hostname[](bg:${nord3} fg:${nord4})";
   block2 = "$directory[](fg:${nord3} bg:${nord2})";
   block3 = "$git_branch$git_status[](fg:${nord2})"; #bg:${nord3})";
-  block4 = "$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust$golang$php "; #[](fg:${nord3} bg:${nord8})";
+  block4 = "$c$elixir$elm$haskell$java$julia$nodejs$nim$rust$golang$php "; #[](fg:${nord3} bg:${nord8})";
   block5 = "$time$status"; #[](fg:${nord8})\n";
   block6 = "╰─$character";
 in
