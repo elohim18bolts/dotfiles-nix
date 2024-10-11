@@ -21,8 +21,6 @@
     trash-cli
     k3d
     kubectl
-    rustc
-    cargo
     #rust-analyzer
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
