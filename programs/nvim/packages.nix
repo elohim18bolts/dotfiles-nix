@@ -10,8 +10,6 @@
     rust-analyzer
     gopls
     go
-    cargo
-    cargo
     nixpkgs-fmt
     nodejs_20
   ];
