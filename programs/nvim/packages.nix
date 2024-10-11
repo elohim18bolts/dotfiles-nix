@@ -9,6 +9,7 @@
     terraform-ls
     rust-analyzer
     gopls
+    cargo
     go
     nixpkgs-fmt
     nodejs_20
