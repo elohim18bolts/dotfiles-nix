@@ -31,6 +31,7 @@
       ''
         set previewer  ${previewer}/bin/pv.sh
         set cleaner  ${cleaner}/bin/cleaner.sh
+        map . set hidden!
       '';
   };
 }
