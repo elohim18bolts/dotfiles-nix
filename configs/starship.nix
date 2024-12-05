@@ -80,7 +80,7 @@ in
       nodejs = {
         symbol = "";
         style = "bg:${nord3}";
-        format = "[[ $symbol ($version) ](fg:${nord9})]"; #bg:${nord3})]($style)";
+        format = "[[ $symbol ($version) ](fg:${nord9})]($style)"; #bg:${nord3})]($style)";
       };
       rust = {
         symbol = "";
