@@ -94,6 +94,11 @@ require("lspconfig").ruby_lsp.setup({
 -------------------------End Ruby Setup ----------------------------------
 lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
+  on_attach = function(client, bufnr)
+    --Enable inlay hints and chnage its color
+    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#9DA9A0" })
+  end,
   settings = {
     ['rust-analyzer'] = {},
   },
