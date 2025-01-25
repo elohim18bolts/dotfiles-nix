@@ -7,22 +7,144 @@ let
     pkgs.lib.fold
       (el: prev:
         {
-          plugins = [
-            {
-              plugin = el.plugin;
-              config = el.config;
-            }
-          ] ++ (if prev ? "plugins" then prev.plugins else [ ]);
-          packages = el.depends_on ++ (if prev ? "packages" then prev.packages else [ ]);
+          plugins =
+            (if el ? "config" then
+              [
+                {
+                  plugin = el.plugin;
+                  config = el.config;
+                }
+              ] else [ el.plugin ]
+            )
+            ++ (if prev ? "plugins" then prev.plugins else [ ]);
+          packages =
+            (if el ? "depends_on" then el.depends_on else [ ]) ++ (if prev ? "packages" then prev.packages else [ ]);
         }
       )
       { }
       plugin_list;
 in
-{
+let
+  plugins = add_neovim_plugins (with pkgs.vimPlugins;[
+    { plugin = (nvim-treesitter.withPlugins (_: nvim-treesitter.allGrammars)); }
+    { plugin = plenary-nvim; }
+    { plugin = telescope-nvim; }
+    {
+      plugin = lualine-nvim;
+      config = toLuaFile ./plugins/lualine.lua;
+    }
+    {
+      plugin = nvim-colorizer-lua;
+      config = toLua ''
+        require("colorizer").setup()
+      '';
+    }
+    {
 
-  /*  nixpkgs = {
-    overlays = [
+      plugin = neoscroll-nvim;
+      config = toLua ''
+        require("neoscroll").setup()
+      '';
+    }
+
+    # {
+    #   plugin = tabline-nvim;
+    #   config = toLuaFile ./plugins/tabline.lua;
+    # }
+    {
+      plugin = nord-nvim;
+      config = toLua ''
+        vim.cmd([[colorscheme nord]])
+      '';
+    }
+    {
+      plugin = nvim-lspconfig;
+      config = toLuaFile ./plugins/lspconfig.lua;
+      depends_on = with pkgs;[
+        pyright
+        nodePackages.typescript-language-server
+        lua-language-server
+        yaml-language-server
+        nil
+        terraform-ls
+        rust-analyzer
+        gopls
+        cargo
+        rustfmt
+        go
+        nixpkgs-fmt
+      ];
+    }
+    /* {
+         plugin = sg-nvimCustom;
+         config = toLuaFile ./plugins/sg.lua;
+             }*/
+    { plugin = harpoon; }
+    { plugin = undotree; }
+    {
+      plugin = vim-fugitive;
+      depends_on = [ pkgs.git ];
+    }
+    {
+      plugin = nvim-autopairs;
+      config = toLua ''
+        require("nvim-autopairs").setup()
+      '';
+    }
+    {
+      plugin = nvim-cmp;
+      config = toLuaFile ./plugins/nvim-cmp.lua;
+    }
+    { plugin = cmp-nvim-lsp; }
+    { plugin = cmp-buffer; }
+    { plugin = cmp-path; }
+    { plugin = cmp-cmdline; }
+    { plugin = cmp-vsnip; }
+    { plugin = vim-vsnip; }
+    { plugin = ansible-vim; }
+    { plugin = vim-nix; }
+    {
+      plugin = nvim-web-devicons;
+      config = toLuaFile ./plugins/nvim-web-devicons.lua;
+      depends_on = [
+        pkgs.fontconfig
+        (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" "VictorMono" ]; })
+      ];
+    }
+    {
+      plugin = neo-tree-nvim;
+      config = toLuaFile ./plugins/neo-tree.lua;
+    }
+    { plugin = oil-nvim; }
+    {
+      plugin = which-key-nvim;
+      config = toLuaFile ./plugins/which-key.lua;
+    }
+    { plugin = vim-floaterm; }
+    { plugin = gitsigns-nvim; }
+    { plugin = rainbow-delimiters-nvim; }
+    { plugin = indent-blankline-nvim; }
+    { plugin = hologram-nvim; }
+    { plugin = go-nvim; }
+    # {
+    #   plugin = orgmode;
+    #   config = toLua ''
+    #       require('orgmode').setup({
+    #       org_agenda_files = '~/orgfiles/**/*',
+    #       org_default_notes_file = '~/orgfiles/refile.org',
+    #     })
+    #   '';
+    # }
+  ]);
+in
+{
+  programs.neovim.plugins = plugins.plugins;
+  programs.neovim.extraPackages = plugins.packages;
+}
+#rec {
+
+/*  nixpkgs = {
+  overlays = [
       (final: prev:
         {
           vimPlugins = prev.vimPlugins // {
@@ -47,104 +169,6 @@ in
             };
           };
         })
-    ];
-    };
+  ];
+  };
   */
-  add_neovim_plugins = [ ]
-    programs.neovim.plugins = with pkgs.vimPlugins;
-  [
-  (
-  nvim-treesitter.withPlugins (_: nvim-treesitter.allGrammars)
-  )
-  plenary-nvim
-  telescope-nvim
-
-  {
-  plugin = lualine-nvim;
-  config = toLuaFile ./plugins/lualine.lua;
-}
-{
-  plugin = nvim-colorizer-lua;
-  config = toLua ''
-    require("colorizer").setup()
-  '';
-}
-{
-
-  plugin = neoscroll-nvim;
-  config = toLua ''
-    require("neoscroll").setup()
-  '';
-}
-
-  # {
-  #   plugin = tabline-nvim;
-  #   config = toLuaFile ./plugins/tabline.lua;
-  # }
-{
-  plugin = nord-nvim;
-  config = toLua ''
-    vim.cmd([[colorscheme nord]])
-  '';
-}
-{
-  plugin = nvim-lspconfig;
-  config = toLuaFile ./plugins/lspconfig.lua;
-}
-  /* {
-      plugin = sg-nvimCustom;
-      config = toLuaFile ./plugins/sg.lua;
-    }*/
-  harpoon
-  undotree
-  vim-fugitive
-{
-  plugin = nvim-autopairs;
-  config = toLua ''
-    require("nvim-autopairs").setup()
-  '';
-}
-{
-  plugin = nvim-cmp;
-  config = toLuaFile ./plugins/nvim-cmp.lua;
-}
-  cmp-nvim-lsp
-  cmp-buffer
-  cmp-path
-  cmp-cmdline
-  cmp-vsnip
-  vim-vsnip
-  ansible-vim
-  vim-nix
-
-{
-  plugin = nvim-web-devicons;
-  config = toLuaFile ./plugins/nvim-web-devicons.lua;
-
-}
-{
-  plugin = neo-tree-nvim;
-  config = toLuaFile ./plugins/neo-tree.lua;
-}
-  oil-nvim
-{
-  plugin = which-key-nvim;
-  config = toLuaFile ./plugins/which-key.lua;
-}
-  vim-floaterm
-  gitsigns-nvim
-  rainbow-delimiters-nvim
-  indent-blankline-nvim
-  hologram-nvim
-  go-nvim
-# {
-#   plugin = orgmode;
-#   config = toLua ''
-#       require('orgmode').setup({
-#       org_agenda_files = '~/orgfiles/**/*',
-#       org_default_notes_file = '~/orgfiles/refile.org',
-#     })
-#   '';
-# }
-];
-}
