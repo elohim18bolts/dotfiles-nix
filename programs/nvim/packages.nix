@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
   programs.neovim.extraPackages = with pkgs; [
-    nodejs_20
+    nodejs_latest
   ];
 }
