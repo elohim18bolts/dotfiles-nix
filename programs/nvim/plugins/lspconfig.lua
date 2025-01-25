@@ -43,6 +43,7 @@ lspconfig.nil_ls.setup {
     },
   }
 }
+lspconfig.svelte.setup {}
 lspconfig.terraformls.setup {}
 -------------------------Ruby Setup ----------------------------------
 _timers = {}

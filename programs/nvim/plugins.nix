@@ -61,8 +61,10 @@ let
       plugin = nvim-lspconfig;
       config = toLuaFile ./plugins/lspconfig.lua;
       depends_on = with pkgs;[
-        pyright
         nodePackages.typescript-language-server
+        typescript
+        svelte-language-server
+        pyright
         lua-language-server
         yaml-language-server
         nil
