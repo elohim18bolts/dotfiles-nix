@@ -26,7 +26,10 @@ let
 in
 let
   plugins = add_neovim_plugins (with pkgs.vimPlugins;[
-    { plugin = (nvim-treesitter.withPlugins (_: nvim-treesitter.allGrammars)); }
+    {
+      plugin = (nvim-treesitter.withPlugins (_: nvim-treesitter.allGrammars));
+      config = toLuaFile ./plugins/tree-sitter.lua;
+    }
     { plugin = plenary-nvim; }
     { plugin = telescope-nvim; }
     {
