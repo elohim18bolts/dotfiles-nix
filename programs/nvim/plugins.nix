@@ -97,6 +97,10 @@ let
       '';
     }
     {
+      plugin = trouble-nvim;
+      config = toLuaFile ./plugins/trouble.lua;
+    }
+    {
       plugin = nvim-cmp;
       config = toLuaFile ./plugins/nvim-cmp.lua;
     }
