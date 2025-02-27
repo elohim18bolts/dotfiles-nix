@@ -1,5 +1,11 @@
 local wk = require('which-key')
 wk.add({
+  mode = { "t" },
+  {
+    { "<Esc>", "<cmd>FloatermToggle<cr>", desc = "Toggle Floating Terminal" },
+  }
+})
+wk.add({
   mode = { "n", "v" },
   {
     { "<leader>pv", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
