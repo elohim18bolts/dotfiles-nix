@@ -31,6 +31,7 @@ lspconfig.yamlls.setup {
     }
   }
 }
+lspconfig.zls.setup {}
 lspconfig.nil_ls.setup {
   autostart = true,
   capabilities = capabilities,

@@ -85,6 +85,8 @@ let
         cargo
         rustfmt
         go
+        zls
+        zig
         nixpkgs-fmt
       ];
     }
