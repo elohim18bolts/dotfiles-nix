@@ -27,6 +27,14 @@ in
 let
   plugins = add_neovim_plugins (with pkgs.vimPlugins;[
     {
+      plugin = render-markdown;
+      config = toLua ''
+        require('render-markdown').setup({
+            completions = { lsp = { enabled = true } },
+        })
+      '';
+    }
+    {
       plugin = (nvim-treesitter.withPlugins (_: nvim-treesitter.allGrammars));
       config = toLuaFile ./plugins/tree-sitter.lua;
     }
