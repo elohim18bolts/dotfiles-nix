@@ -27,7 +27,7 @@ in
 let
   plugins = add_neovim_plugins (with pkgs.vimPlugins;[
     {
-      plugin = render-markdown;
+      plugin = render-markdown-nvim;
       config = toLua ''
         require('render-markdown').setup({
             completions = { lsp = { enabled = true } },
@@ -125,9 +125,9 @@ let
     {
       plugin = nvim-web-devicons;
       config = toLuaFile ./plugins/nvim-web-devicons.lua;
-      depends_on = [
-        pkgs.fontconfig
-        (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" "VictorMono" ]; })
+      depends_on = with pkgs;[
+        nerd-fonts.jetbrains-mono
+        nerd-fonts.victor-mono
       ];
     }
     {

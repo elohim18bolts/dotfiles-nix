@@ -1,8 +1,6 @@
 { pkgs, config, ... }:
 let
-  symbolFont = pkgs.nerdfonts.override {
-    fonts = [ "NerdFontsSymbolsOnly" ];
-  };
+  symbolFont = pkgs.nerd-fonts.symbols-only;
 in
 {
   home.file."NerdFontsSymbols" = {
@@ -10,10 +8,9 @@ in
     source = "${symbolFont}/share/fonts/truetype/NerdFonts/SymbolsNerdFontMono-Regular.ttf";
     target = "Library/Fonts/SymbolsNerdFontMono-Regular.ttf";
   };
-  home.packages = [
-    pkgs.fontconfig
-    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" "VictorMono" ]; })
-
+  home.packages = with pkgs;[
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.victor-mono
   ];
 
   fonts.fontconfig.enable = true;

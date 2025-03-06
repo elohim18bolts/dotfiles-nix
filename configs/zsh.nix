@@ -21,6 +21,10 @@
         . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
       fi
       # End Nix
+    '' + ''
+      if [ -n "$IN_NIX_SHELL" ];then
+         export PS1="$PS1:nix-shell > "
+      fi
     '';
 
     plugins = [
