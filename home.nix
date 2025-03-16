@@ -24,6 +24,7 @@
     cargo
     rustc
     nodejs_latest
+    license-cli
     #rust-analyzer
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
