@@ -22,6 +22,7 @@
     k3d
     kubectl
     cargo
+    cargo-generate
     rustc
     nodejs_latest
     license-cli
