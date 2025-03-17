@@ -1,6 +1,7 @@
 -- Setup language servers.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
+require 'lspconfig'.slint_lsp.setup {}
 lspconfig.pyright.setup {}
 lspconfig.ts_ls.setup {}
 lspconfig.lua_ls.setup {

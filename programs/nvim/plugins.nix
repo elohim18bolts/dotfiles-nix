@@ -27,6 +27,9 @@ in
 let
   plugins = add_neovim_plugins (with pkgs.vimPlugins;[
     {
+      plugin = nvim-treesitter-parsers.slint;
+    }
+    {
       plugin = render-markdown-nvim;
       config = toLua ''
         require('render-markdown').setup({
@@ -72,6 +75,7 @@ let
       plugin = nvim-lspconfig;
       config = toLuaFile ./plugins/lspconfig.lua;
       depends_on = with pkgs;[
+        slint-lsp
         typescript-language-server
         svelte-language-server
         pyright

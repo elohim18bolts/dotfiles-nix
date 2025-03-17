@@ -26,6 +26,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.softtabstop = 2
 vim.cmd('autocmd BufRead,BufNewFile user-data set filetype=yaml')
+vim.cmd [[ autocmd BufRead,BufNewFile *.slint set filetype=slint ]]
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufRead', 'BufNewFile' }, {
   pattern = 'lfrc',
   command = 'set filetype=vim',
