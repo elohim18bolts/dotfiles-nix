@@ -11,6 +11,11 @@ wk.add({
     { "<leader>pv", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
   },
   {
+    { "<leader> l", group = "List" },
+    { "<leader>la", "<cmd>normal! o- []  <cr><cmd>startinsert<cr>", desc = "Add new item." },
+    { "<leader>lc", "<cmd>s/\\[]/\\[x]<cr>" },
+  },
+  {
     { "<leader> f", group = "File" },
     { "<leader>ff", "<cmd>Telescope find_files<cr>",  desc = "Find File" },
     { "<leader>fp", "<cmd>Telescope git_files<cr>",   desc = "Find File In Project" },
