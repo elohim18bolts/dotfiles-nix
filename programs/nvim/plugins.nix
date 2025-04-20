@@ -76,6 +76,7 @@ let
       config = toLuaFile ./plugins/lspconfig.lua;
       depends_on = with pkgs;[
         slint-lsp
+        vscode-langservers-extracted
         typescript-language-server
         svelte-language-server
         pyright
