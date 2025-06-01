@@ -14,7 +14,7 @@
     };
     autocd = true;
     defaultKeymap = "viins";
-    initExtra = '' bindkey -e 'jk' vi-cmd-mode
+    initContent = '' bindkey -e 'jk' vi-cmd-mode
     '' + lib.optionalString pkgs.stdenv.isDarwin ''
       # Nix
       if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
