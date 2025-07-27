@@ -24,3 +24,13 @@ function run_cmd()
     end
   })
 end
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  buffer = buffer, -- current buffer only
+  callback = function()
+    if vim.bo.filetype == "hcl" then
+      vim.cmd("silent !packer fmt " .. vim.fn.expand("%:p"))
+    end
+    -- print("You are here!!!")
+  end,
+})
