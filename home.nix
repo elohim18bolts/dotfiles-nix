@@ -26,7 +26,6 @@
     rustc
     nodejs_latest
     lima
-    license-cli
     #rust-analyzer
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
