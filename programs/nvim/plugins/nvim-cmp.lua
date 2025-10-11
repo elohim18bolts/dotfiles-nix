@@ -44,14 +44,3 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
-
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-require('lspconfig')['lua_ls'].setup { capabilities = capabilities }
--- require('lspconfig')['nil_ls'].setup { capabilities = capabilities }
-require('lspconfig')['yamlls'].setup { capabilities = capabilities }
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-require 'lspconfig'.html.setup {
-  capabilities = capabilities,
-}

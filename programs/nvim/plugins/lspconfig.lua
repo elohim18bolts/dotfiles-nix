@@ -1,10 +1,22 @@
 -- Setup language servers.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local lspconfig = require('vim.lsp.config')
-require 'lspconfig'.slint_lsp.setup {}
-lspconfig.pyright.setup {}
-lspconfig.ts_ls.setup {}
-lspconfig.lua_ls.setup {
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+vim.lsp.enable("html")
+vim.lsp.enable("slint_lsp")
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("pyright")
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("yamlls")
+vim.lsp.enable("zls")
+vim.lsp.enable("nil_ls")
+vim.lsp.enable("svelte")
+vim.lsp.enable("terraformls")
+vim.lsp.enable("gopls")
+vim.lsp.enable("rust_analyzer")
+
+vim.lsp.config("lua_ls", {
+  capabilities = capabilities,
   settings = {
     runtime = { version = 'LuaJIT', },
     diagnostics = {
@@ -19,21 +31,23 @@ lspconfig.lua_ls.setup {
       enable = false,
     },
   },
-}
-lspconfig.yamlls.setup {
+})
+vim.lsp.config("yamlls", {
   on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     yaml = {
       schemas = {
         ["https://json.schemastore.org/chart.json"] = "/*",
-        ["https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json"] = "conf/**/*catalog*",
+        ["https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json"] =
+        "conf/**/*catalog*",
         ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*"
       }
     }
   }
-}
-lspconfig.zls.setup {}
-lspconfig.nil_ls.setup {
+})
+
+vim.lsp.config("nil_ls", {
   autostart = true,
   capabilities = capabilities,
   settings = {
@@ -44,9 +58,8 @@ lspconfig.nil_ls.setup {
       },
     },
   }
-}
-lspconfig.svelte.setup {}
-lspconfig.terraformls.setup {}
+})
+
 -------------------------Ruby Setup ----------------------------------
 _timers = {}
 local function setup_diagnostics(client, buffer)
@@ -89,13 +102,13 @@ local function setup_diagnostics(client, buffer)
   })
 end
 
-require("vim.lsp.config").ruby_lsp.setup({
+vim.lsp.config("ruby_lsp", {
   on_attach = function(client, buffer)
     setup_diagnostics(client, buffer)
   end,
 })
 -------------------------End Ruby Setup ----------------------------------
-lspconfig.rust_analyzer.setup {
+vim.lsp.config("rust_analyzer", {
   -- Server-specific settings. See `:help lspconfig-setup`
   on_attach = function(client, bufnr)
     --Enable inlay hints and chnage its color
@@ -105,8 +118,7 @@ lspconfig.rust_analyzer.setup {
   settings = {
     ['rust-analyzer'] = {},
   },
-}
-require 'lspconfig'.gopls.setup {}
+})
 
 vim.api.nvim_create_autocmd('BufWritePre', {
   --	pattern = { "*.hcl","*.tf", "*.tfvars" },
