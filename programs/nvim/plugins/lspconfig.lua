@@ -1,6 +1,6 @@
 -- Setup language servers.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local lspconfig = require('lspconfig')
+local lspconfig = require('vim.lsp.config')
 require 'lspconfig'.slint_lsp.setup {}
 lspconfig.pyright.setup {}
 lspconfig.ts_ls.setup {}
@@ -89,7 +89,7 @@ local function setup_diagnostics(client, buffer)
   })
 end
 
-require("lspconfig").ruby_lsp.setup({
+require("vim.lsp.config").ruby_lsp.setup({
   on_attach = function(client, buffer)
     setup_diagnostics(client, buffer)
   end,
