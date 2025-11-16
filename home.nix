@@ -26,6 +26,7 @@
     rustc
     nodejs_latest
     lima
+    docker-client
     #rust-analyzer
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
