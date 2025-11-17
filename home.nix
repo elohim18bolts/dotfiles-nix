@@ -26,7 +26,7 @@
     rustc
     nodejs_latest
     lima
-    docker-client
+    #docker-client
     #rust-analyzer
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -87,6 +87,7 @@
     ./programs/ls_colors/ls.nix
     ./programs/nvim/nvim.nix
     ./programs/lf/lf.nix
+    ./programs/docker.nix
   ];
 
   home.sessionPath = [
