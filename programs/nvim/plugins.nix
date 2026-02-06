@@ -4,7 +4,7 @@ let
   toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
   #add_plugin => {plugin, packages} 
   add_neovim_plugins = plugin_list:
-    pkgs.lib.fold
+    pkgs.lib.foldr
       (el: prev:
         {
           plugins =
