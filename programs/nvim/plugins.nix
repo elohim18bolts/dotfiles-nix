@@ -38,7 +38,7 @@ let
       '';
     }
     {
-      plugin = (nvim-treesitter.withPlugins (_: nvim-treesitter.allGrammars));
+      plugin = nvim-treesitter.withAllGrammars;
       config = toLuaFile ./plugins/tree-sitter.lua;
     }
     { plugin = plenary-nvim; }

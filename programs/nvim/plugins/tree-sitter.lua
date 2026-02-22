@@ -1,6 +1,6 @@
 require 'nvim-treesitter'.setup {
   -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-  ensure_installed = { },
+  ensure_installed = {},
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -10,7 +10,7 @@ require 'nvim-treesitter'.setup {
   auto_install = false,
 
   -- List of parsers to ignore installing (or "all")
-  ignore_install = { },
+  ignore_install = {},
 
   ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
   -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!

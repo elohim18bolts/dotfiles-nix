@@ -31,3 +31,16 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufRead', 'BufNewFile' }, {
   pattern = 'lfrc',
   command = 'set filetype=vim',
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'rust', 'javascript', 'zig', 'svelte', 'c', 'go', 'slint' },
+  callback = function()
+    -- syntax highlighting, provided by Neovim
+    vim.treesitter.start()
+    -- folds, provided by Neovim
+    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    vim.wo.foldmethod = 'expr'
+    -- indentation, provided by nvim-treesitter
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end,
+})
