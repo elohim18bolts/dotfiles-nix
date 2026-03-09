@@ -85,6 +85,13 @@ wk.add({
     { "<leader>cd", "<cmd>Trouble diagnostics toggle<cr>", desc = "Show LSP diagnostics." },
 
   },
+  {
+    { "<leader>h",  group = "Harpoon" },
+    { "<leader>hh", "<cmd>:lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Show harpoon menu" },
+    { "<leader>ha", "<cmd>:lua require('harpoon.mark').add_file()<cr>",        desc = "Add file to list" },
+    { "<leader>hn", "<cmd>:lua require('harpoon.ui').nav_next()<cr>",          desc = "Navigates to next mark" },
+    { "<leader>hp", "<cmd>:lua require('harpoon.ui').nav_prev()<cr>",          desc = "Navigates to previous mark" },
+  }
 
 
 })
