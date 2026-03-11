@@ -17,6 +17,7 @@
     with utils;
     {
       homeConfigurations = {
+        default = self.homeConfigurations."elohim@mbp16";
         "elohim@mbp16" = mkHome "aarch64-darwin" [ ./systems/macos.nix ];
         "elohim@linux64" = mkHome "x86_64-linux" [ ./systems/linux.nix ];
 
