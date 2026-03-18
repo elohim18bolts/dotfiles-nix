@@ -35,12 +35,11 @@ in
         show_always = true;
         style_user = "bg:${nord4} fg:${nord3}"; #3B4252"
         style_root = "bg:${nord11}";
-        format = "[$user ]($style)";
+        format = "[$user]($style)";
       };
       hostname = {
-        ssh_only = false;
-        ssh_symbol = "󰢩 ";
-        format = "[$ssh_symbol](bold ${nord3})[󰹻 $hostname](bold fg:${nord3} bg:${nord4})";
+        ssh_only = true;
+        format = "[@$hostname](bold fg:${nord3} bg:${nord4})";
       };
       status = {
         disabled = false;
@@ -146,11 +145,7 @@ in
       os = {
         disabled = false;
         style = "bg:${nord4} fg:${nord3}";
-        format = "[ $symbol ]($style)";
-        symbols = {
-          Arch = "󰣇";
-          Macos = "";
-        };
+        format = "[\\[$name\\]]($style)";
       };
     };
   };
