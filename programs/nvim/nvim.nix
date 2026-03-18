@@ -6,8 +6,8 @@
     vimAlias = true;
     vimdiffAlias = true;
     initLua = ''
-      ${builtins.readFile ./plugins/runcommand.lua}
       ${builtins.readFile ./plugins/options.lua}
+      ${builtins.readFile ./plugins/runcommand.lua}
     '';
   };
   # This is only for rust-analyzer to find the cargo binary.

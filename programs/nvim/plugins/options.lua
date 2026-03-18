@@ -1,10 +1,10 @@
+vim.opt.termguicolors = true
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
 vim.g.mapleader = " "
 -- vim.keymap.set("n", "<leader>pe", ":Oil --float " .. vim.loop.cwd())
 vim.keymap.set("i", "jk", "<ESC>")
 vim.keymap.set("n", "<leader>w", "<C-w>")
 vim.keymap.set("n", "<leader>fs", ":w<CR>")
-vim.keymap.set("n", "<leader>cc", run_cmd)
 -- vim.keymap.set('n', "<leader>t", vim.cmd.FloatermToggle)
 --vim.keymap.set('t', "<leader>x", vim.cmd.FloatermToggle)
 -- vim.keymap.set('n', "<leader>tn", vim.cmd.TablineBufferNext)
@@ -28,19 +28,19 @@ vim.opt.softtabstop = 2
 vim.cmd('autocmd BufRead,BufNewFile user-data set filetype=yaml')
 vim.cmd [[ autocmd BufRead,BufNewFile *.slint set filetype=slint ]]
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufRead', 'BufNewFile' }, {
-  pattern = 'lfrc',
-  command = 'set filetype=vim',
+	pattern = 'lfrc',
+	command = 'set filetype=vim',
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'rust', 'javascript', 'zig', 'svelte', 'c', 'go', 'slint' },
-  callback = function()
-    -- syntax highlighting, provided by Neovim
-    vim.treesitter.start()
-    -- folds, provided by Neovim
-    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-    vim.wo.foldmethod = 'expr'
-    -- indentation, provided by nvim-treesitter
-    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-  end,
+	pattern = { 'rust', 'javascript', 'zig', 'svelte', 'c', 'go', 'slint' },
+	callback = function()
+		-- syntax highlighting, provided by Neovim
+		vim.treesitter.start()
+		-- folds, provided by Neovim
+		vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+		vim.wo.foldmethod = 'expr'
+		-- indentation, provided by nvim-treesitter
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end,
 })
