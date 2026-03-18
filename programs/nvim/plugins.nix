@@ -68,7 +68,7 @@ let
     {
       plugin = nord-nvim;
       config = toLua ''
-        vim.cmd([[colorscheme nord]])
+        vim.cmd.colorscheme("nord")
       '';
     }
     {
