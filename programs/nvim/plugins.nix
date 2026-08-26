@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 let
-  toLua = str: "lua << EOF\n${str}\nEOF\n";
-  toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
+  toLua = str: "${str}";
+  toLuaFile = file: "${builtins.readFile file}"; 
   #add_plugin => {plugin, packages} 
   add_neovim_plugins = plugin_list:
     pkgs.lib.foldr
