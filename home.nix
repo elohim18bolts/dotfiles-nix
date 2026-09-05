@@ -21,6 +21,7 @@
     trash-cli
     k3d
     kubectl
+    krew
     cargo
     cargo-generate
     rustc
@@ -91,6 +92,7 @@
 
   home.sessionPath = [
     # EDITOR = "emacs";
+    "$HOME/.krew/bin"
     "$HOME/.rd/bin"
   ];
 

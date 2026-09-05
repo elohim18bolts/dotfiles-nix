@@ -25,6 +25,13 @@
       if [ -n "$IN_NIX_SHELL" ];then
          export PS1="$PS1:nix-shell > "
       fi
+
+      source <(kubectl completion zsh)
+    '';
+    profileExtra = ''
+      #Homebrew
+      eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+      
     '';
 
     plugins = [
