@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 let
   toLua = str: "${str}";
-  toLuaFile = file: "${builtins.readFile file}"; 
+  toLuaFile = file: "${builtins.readFile file}";
   #add_plugin => {plugin, packages} 
   add_neovim_plugins = plugin_list:
     pkgs.lib.foldr
@@ -98,6 +98,8 @@ let
          plugin = sg-nvimCustom;
          config = toLuaFile ./plugins/sg.lua;
              }*/
+
+    { plugin = SchemaStore-nvim; }
     { plugin = harpoon; }
     { plugin = undotree; }
     {
@@ -124,7 +126,6 @@ let
     { plugin = cmp-cmdline; }
     { plugin = cmp-vsnip; }
     { plugin = vim-vsnip; }
-    { plugin = ansible-vim; }
     { plugin = vim-nix; }
     {
       plugin = nvim-web-devicons;

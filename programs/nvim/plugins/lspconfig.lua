@@ -37,12 +37,12 @@ vim.lsp.config("yamlls", {
   capabilities = capabilities,
   settings = {
     yaml = {
-      schemas = {
-        ["https://json.schemastore.org/chart.json"] = "/*",
-        ["https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json"] =
-        "conf/**/*catalog*",
-        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*"
-      }
+      schemastore = {
+        enable = false,
+        -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+        url = "",
+      },
+      schemas = require('schemastore').yaml.schemas(),
     }
   }
 })
