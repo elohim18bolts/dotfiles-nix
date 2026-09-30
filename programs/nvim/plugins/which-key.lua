@@ -65,6 +65,9 @@ wk.add({
     { "<leader>b",  group = "Buffer" },
     { "<leader>bb", "<cmd>Telescope buffers<cr>",                   desc = "Show Opened Buffers" },
     { "<leader>bs", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Find In Current Buffer" },
+    { "<leader>bn", "<cmd>bnext<cr>",                               desc = "Next Buffer" },
+    { "<leader>bp", "<cmd>bprevious<cr>",                           desc = "Previous Buffer" },
+    { "<leader>bd", "<cmd>bdelete<cr>",                             desc = "Delete Buffer" },
   },
   {
     { "<leader>w",  group = "Panels" },
@@ -73,11 +76,12 @@ wk.add({
 
   },
   {
-    { "<leader>t",  group = "Terminals And Tabs" },
-    { "<leader>tt", "<cmd>FloatermToggle<cr>",              desc = "Toggle Floating Terminal" },
-    { "<leader>tn", "<cmd>TablineBufferNext<cr>",           desc = "Next Tab" },
-    { "<leader>tp", "<cmd>TablineBufferPrevious<cr>",       desc = "Previous Tab" },
-    { "<leader>th", "<cmd>TablineToggleShowAllBuffers<cr>", desc = "Toggle Show All Tabs" },
+    { "<leader>t",      group = "Terminals And Tabs" },
+    { "<leader>tt",     "<cmd>FloatermToggle<cr>",   desc = "Toggle Floating Terminal" },
+    { "<leader>tn",     "gt",                        desc = "Next Tab" },
+    { "<leader>tp",     "gT",                        desc = "Previous Tab" },
+    { "<leader>t<Del>", "<cmd>tabclose<cr>",         desc = "Close Tab" },
+    { "<leader>th",     "<cmd>tabs<cr>",             desc = "Toggle Show All Tabs" },
 
   },
   {

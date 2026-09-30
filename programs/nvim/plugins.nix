@@ -61,10 +61,6 @@ let
       '';
     }
 
-    # {
-    #   plugin = tabline-nvim;
-    #   config = toLuaFile ./plugins/tabline.lua;
-    # }
     {
       plugin = nord-nvim;
       config = toLua ''
@@ -109,11 +105,11 @@ let
     {
       plugin = nvim-autopairs;
       config = toLua ''
-        require("nvim-autopairs").setup()
+        require("nvim-autopairs").setup {}
       '';
     }
     {
-      plugin = trouble-nvim;
+      plugin = trouble-nvim; #code diagnostic
       config = toLuaFile ./plugins/trouble.lua;
     }
     {
@@ -150,49 +146,9 @@ let
     { plugin = indent-blankline-nvim; }
     { plugin = hologram-nvim; }
     { plugin = go-nvim; }
-    # {
-    #   plugin = orgmode;
-    #   config = toLua ''
-    #       require('orgmode').setup({
-    #       org_agenda_files = '~/orgfiles/**/*',
-    #       org_default_notes_file = '~/orgfiles/refile.org',
-    #     })
-    #   '';
-    # }
   ]);
 in
 {
   programs.neovim.plugins = plugins.plugins;
   programs.neovim.extraPackages = plugins.packages;
 }
-#rec {
-
-/*  nixpkgs = {
-  overlays = [
-      (final: prev:
-        {
-          vimPlugins = prev.vimPlugins // {
-            sg-nvimCustom = prev.vimUtils.buildVimPlugin {
-              pname = "sg-nvimCustom";
-              version = "v1.1.0";
-              src = pkgs.fetchFromGitHub {
-                owner = "sourcegraph";
-                repo = "sg.nvim";
-                rev = "8d7735bfb810d919806da1e1c4f839fbc6ecccfe";
-                sha256 = "1wb6k3zyk5xa2s6v9x5kly9wv6hi4mpw9630fkyj0ixc4z67y4j9";
-              };
-              binSrc = pkgs.fetchzip {
-                url = "https://github.com/sourcegraph/sg.nvim/releases/download/v1.1.0/${sgBaseName}.tar.xz";
-                extension = "tar.xz";
-                sha256 = "${sgSha256}";
-              };
-              postInstall = ''
-                mkdir -p $out/dist
-                cp -r $binSrc/* $out/dist
-              '';
-            };
-          };
-        })
-  ];
-  };
-  */
