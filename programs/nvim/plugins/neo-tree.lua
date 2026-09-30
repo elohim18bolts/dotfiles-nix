@@ -160,6 +160,18 @@ require("neo-tree").setup({
         -- vim.cmd("Neotree close")
         -- OR
         require("neo-tree.command").execute({ action = "close" })
+        vim.schedule(function()
+          for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+            if
+                vim.api.nvim_buf_is_valid(bufnr)
+                and vim.api.nvim_buf_get_name(bufnr) == ""
+                and not vim.bo[bufnr].modified
+                and vim.bo[bufnr].buftype == ""
+            then
+              vim.api.nvim_buf_delete(bufnr, {})
+            end
+          end
+        end)
       end
     },
 

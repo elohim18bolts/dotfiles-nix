@@ -5,11 +5,6 @@ vim.g.mapleader = " "
 vim.keymap.set("i", "jk", "<ESC>")
 vim.keymap.set("n", "<leader>w", "<C-w>")
 vim.keymap.set("n", "<leader>fs", ":w<CR>")
--- vim.keymap.set('n', "<leader>t", vim.cmd.FloatermToggle)
---vim.keymap.set('t', "<leader>x", vim.cmd.FloatermToggle)
--- vim.keymap.set('n', "<leader>tn", vim.cmd.TablineBufferNext)
--- vim.keymap.set('n', "<leader>tp", vim.cmd.TablineBufferPrevious)
--- vim.keymap.set('n', "<leader>th", vim.cmd.TablineToggleShowAllBuffers)
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.clipboard = "unnamedplus"
@@ -26,6 +21,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.softtabstop = 2
 vim.opt.ignorecase = true
+vim.opt.showtabline = 0
 vim.cmd('autocmd BufRead,BufNewFile user-data set filetype=yaml')
 vim.cmd [[ autocmd BufRead,BufNewFile *.slint set filetype=slint ]]
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufRead', 'BufNewFile' }, {

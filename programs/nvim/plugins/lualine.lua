@@ -123,7 +123,23 @@ lualine.setup {
         'diff',
       }
     },
-    lualine_c = {},
+    lualine_c = {
+      {
+        "buffers",
+        buffers_color = {
+          active = {
+            bg = colors.nord10,
+            gui = "bold"
+          },
+          inactive = {
+            bg = colors.nord3
+          }
+        },
+        separator = {
+          right = ""
+        }
+      }
+    },
     lualine_x = {
       {
         'diagnostics',
@@ -145,75 +161,7 @@ lualine.setup {
       }
     }
   },
-  tabline = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {
-      {
-        "buffers",
-        symbols = {
-          modified = "",
-          readonly = "",
-          unnamed = "󰩋 ",
-          newfile = "󰎔 ",
-        },
-        buffers_color = {
-          active = {
-            fg = colors.nord4,
-            bg = colors.nord9,
-          },
-          inactive = {
-            fg = colors.nord4,
-            bg = colors.nord2,
-          }
-        },
-        separator = {
-          right = ""
-        }
-      }
-    },
-    lualine_x = {},
-    lualine_y = {
-      {
-        "filename",
-        file_status = true,
-        shorting_target = 25,
-        path = 1,
-        symbols = {
-
-          modified = "",
-          readonly = "",
-          unnamed = "󰩋 ",
-          newfile = "󰎔 ",
-        },
-        separator = {
-          left = ""
-        },
-        color = {
-          fg = colors.nord4,
-          bg = colors.nord9,
-        },
-      }
-    },
-    lualine_z = {
-      {
-        "tabs",
-        tabs_color = {
-          active = {
-            fg = colors.nord4,
-            bg = colors.nord9,
-          },
-          inactive = {
-            fg = colors.nord4,
-            bg = colors.nord2,
-          }
-        },
-        separator = {
-          left = ""
-        }
-      }
-    },
-  },
+  tabline = {},
   winbar = {},
   inactive_winbar = {
     lualine_a = {},
