@@ -25,22 +25,23 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.softtabstop = 2
+vim.opt.ignorecase = true
 vim.cmd('autocmd BufRead,BufNewFile user-data set filetype=yaml')
 vim.cmd [[ autocmd BufRead,BufNewFile *.slint set filetype=slint ]]
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufRead', 'BufNewFile' }, {
-	pattern = 'lfrc',
-	command = 'set filetype=vim',
+  pattern = 'lfrc',
+  command = 'set filetype=vim',
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-	pattern = { 'rust', 'javascript', 'zig', 'svelte', 'c', 'go', 'slint' },
-	callback = function()
-		-- syntax highlighting, provided by Neovim
-		vim.treesitter.start()
-		-- folds, provided by Neovim
-		vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-		vim.wo.foldmethod = 'expr'
-		-- indentation, provided by nvim-treesitter
-		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-	end,
+  pattern = { 'rust', 'javascript', 'zig', 'svelte', 'c', 'go', 'slint' },
+  callback = function()
+    -- syntax highlighting, provided by Neovim
+    vim.treesitter.start()
+    -- folds, provided by Neovim
+    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    vim.wo.foldmethod = 'expr'
+    -- indentation, provided by nvim-treesitter
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end,
 })
