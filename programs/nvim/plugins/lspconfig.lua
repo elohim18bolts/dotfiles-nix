@@ -15,6 +15,7 @@ vim.lsp.enable("terraformls")
 vim.lsp.enable("gopls")
 vim.lsp.enable("rust_analyzer")
 
+
 vim.lsp.config("lua_ls", {
   capabilities = capabilities,
   settings = {
