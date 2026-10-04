@@ -1,5 +1,5 @@
 # Run
 
 ```bash
-home-manager switch --flake [".#darwin"] ".#linux"
+home-manager switch --flake [".#elohim@mbpro16"] ".#elohim@linux64" 
 ```
