@@ -6,22 +6,30 @@ vim.keymap.set("i", "jk", "<ESC>")
 vim.keymap.set("n", "<leader>w", "<C-w>")
 vim.keymap.set("n", "<leader>fs", ":w<CR>")
 vim.opt.relativenumber = true
-vim.opt.number = true
-vim.opt.clipboard = "unnamedplus"
-vim.opt.linebreak = true
-vim.opt.cursorline = true
-vim.opt.scrolloff = 15
-vim.opt.foldmethod = "expr"
-vim.opt.foldlevel = 20
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.binary = true
-vim.opt.endofline = false
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.softtabstop = 2
-vim.opt.ignorecase = true
-vim.opt.showtabline = 0
+vim.opt.number         = true
+vim.opt.clipboard      = "unnamedplus"
+vim.opt.linebreak      = true
+vim.opt.cursorline     = true
+vim.opt.signcolumn     = "yes"
+vim.opt.scrolloff      = 15
+vim.opt.foldmethod     = "expr"
+vim.opt.foldlevel      = 20
+vim.opt.foldexpr       = "nvim_treesitter#foldexpr()"
+vim.opt.binary         = true
+vim.opt.endofline      = false
+vim.opt.tabstop        = 2
+vim.opt.softtabstop    = 2
+vim.opt.shiftwidth     = 2
+vim.opt.expandtab      = true
+vim.opt.ignorecase     = true
+vim.opt.smartcase      = true
+vim.opt.swapfile       = false
+vim.opt.backup         = false
+vim.opt.undofile       = true
+vim.opt.undolevels     = 10000
+vim.opt.cmdheight      = 0
+vim.opt.undodir        = vim.fn.expand("~/.vim/undodir")
+vim.opt.showtabline    = 0
 vim.cmd('autocmd BufRead,BufNewFile user-data set filetype=yaml')
 vim.cmd [[ autocmd BufRead,BufNewFile *.slint set filetype=slint ]]
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufRead', 'BufNewFile' }, {
